@@ -5,13 +5,18 @@
 /////////////////////////
 const navItems = document.querySelector('.nav-items');
 const hamburger = document.querySelector('.ham');
+const navOverlay = document.querySelector('.nav-overlay');
 
 //menu and hamburger animation
 const openCloseMenu = function () {
   navItems.classList.toggle('active');
   hamburger.classList.toggle('active');
+  navOverlay.classList.toggle('hidden');
 };
+//hamburger button
 hamburger.addEventListener('click', openCloseMenu);
+//overlay
+navOverlay.addEventListener('click', openCloseMenu);
 
 // menu links
 navItems.addEventListener('click', function (e) {
@@ -152,29 +157,29 @@ slider();
 
 const modalBtn = document.querySelector('.show-modal');
 const modal = document.querySelector('.modal');
-const overlay = document.querySelector('.overlay');
+const modalOverlay = document.querySelector('.modal-overlay');
 const closeModalBtn = document.querySelector('.close-modal');
 
 //show modal
 const showModal = function (e) {
   e.preventDefault();
-  overlay.classList.remove('hidden');
+  modalOverlay.classList.remove('hidden');
   modal.classList.remove('hidden');
 };
 modalBtn.addEventListener('click', showModal);
 
 //hide modal
 const hideModal = function () {
-  overlay.classList.add('hidden');
+  modalOverlay.classList.add('hidden');
   modal.classList.add('hidden');
 };
 
-overlay.addEventListener('click', hideModal);
+modalOverlay.addEventListener('click', hideModal);
 
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
     modal.classList.add('hidden');
-    overlay.classList.add('hidden');
+    modalOverlay.classList.add('hidden');
   }
 });
 
