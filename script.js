@@ -47,7 +47,9 @@ navLogos.forEach(logo => logo.addEventListener('click', logoScroll));
 const sectionHeadings = document.querySelectorAll('.banner-heading');
 
 const revealHeadings = function (entries, observer) {
+  console.log(entries, observer);
   const [entry] = entries;
+  console.log(entry);
   if (!entry.isIntersecting) return;
   entry.target.classList.remove('hidden');
   observer.unobserve(entry.target);
